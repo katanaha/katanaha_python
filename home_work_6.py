@@ -4,8 +4,11 @@ class Work_with_dictionary:
 	user_answer = 'yes'
 	dictionary = {}
 
-	def __init__(self, dictionary):
-		self.dictionary = dictionary
+	def __init__(self, dictionary=None):
+		if not dictionary:
+			dictionary = self
+		else:
+			self.dictionary = dictionary
 
 	def printing_of_commad_menu(self):
 		print('Commands menu:')
@@ -23,7 +26,7 @@ class Work_with_dictionary:
 		for key in self.dictionary:
 			print(key)
 		print(self.dictionary.get(input('Enter name of key from the list: ')))
-		Work_with_dictionary.users_answer(self, )
+		Work_with_dictionary.users_answer(self)
 
 	def command_of_adding_new_item(self):
 		print((' 2. Add a new item'))
@@ -75,17 +78,9 @@ class Work_with_dictionary:
 				break
 
 
+def main():
+	random_dictionary = Work_with_dictionary()
+	Work_with_dictionary.work_with_dictionary(random_dictionary)
 
-
-names_english_and_ukraine = {
-	'Ivan': 'John',
-	'Andrii': 'Andrew',
-	'Pavlo': 'Paul'
-}
-
-ukrainian_names_in_english = Work_with_dictionary(names_english_and_ukraine)
-# Work_with_dictionary.view_dictionary_elements(names_english_and_ukraine)
-Work_with_dictionary.work_with_dictionary(ukrainian_names_in_english)
-
-
-# print(ukrainian_names_in_english.dictionary)
+if __name__ == "__main__":
+	main()
