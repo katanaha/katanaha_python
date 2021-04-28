@@ -6,7 +6,7 @@ class Work_with_dictionary:
 
     def __init__(self, dictionary=None):
         if not dictionary:
-            dictionary = self.dictionary
+             self.dictionary = dictionary
         else:
             self.dictionary = dictionary
 
